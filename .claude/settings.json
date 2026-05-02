@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm run prettier:write -- --log-level warn"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint*)",
+      "Bash(npm run prettier*)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(git status)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add src/*)",
+      "Bash(ls*)"
+    ],
+    "deny": ["Bash(git push --force*)", "Bash(rm -rf*)"]
+  }
+}
